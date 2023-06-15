@@ -1,5 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Link from "next/link"
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +13,36 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <main className='min-h-screen'>
+        <nav className=''>
+          <ul className="flex flex-row justify-around p-10  bg-gradient-to-b  from-gray-300 via-gray-500 ">
+            <li>
+              <Link
+                href="/"
+                className="hover:text-orange-600 active:text-orange-800"
+              >
+                home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/users"
+                className="hover:text-orange-600 active:text-orange-800"
+              >
+                users
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        {children}
+        </main>
+      </body>
+
+      <div className='text-white flex justify-center'>
+        <a href='https://github.com/esin0634'> coded by: esin </a>
+      </div>
     </html>
   )
 }
